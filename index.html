@@ -1,400 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Med1n | Football, Explained Differently.</title>
-  <meta name="description" content="Football explained through the combined lens of Math and Storytelling. Data, tactics, statistics and narratives from Med1n.">
-  <meta property="og:title" content="Med1n | Football, Explained Differently.">
-  <meta property="og:description" content="Football explained through the combined lens of Math and Storytelling.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090909" />
+    <meta
+      name="description"
+      content="Med1n explains football through data, tactics and storytelling."
+    />
+    <meta property="og:title" content="Med1n — Football, decoded" />
+    <meta
+      property="og:description"
+      content="Football explained through the combined lens of Math and Storytelling."
+    />
+    <link rel="icon" type="image/svg+xml" href="photos/med1n_icon-removebg-preview.png">
+    <link rel="icon" type="image/png" href="photos/med1n_icon-removebg-preview.png">
 
-</head>
-<body>
-
-<header>
-  <div class="wrap header-row">
-    <a class="brand" href="#home" aria-label="Med1n, back to top">
-      <img id="header-logo" alt="Med1n channel logo">
-      <span>Med1n</span>
-    </a>
-    <button class="menu-button" id="menu-button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
-    <nav id="main-nav" aria-label="Main">
-      <a class="link" href="#home">Home</a>
-      <a class="link" href="#videos">Videos</a>
-      <a class="link" href="#about">About</a>
-      <a class="link" href="#comments">Comments</a>
-      <a class="link" href="#contact">Contact</a>
-      <a class="link" href="#socials">Socials</a>
-      <a class="button solid" id="subscribe-header" target="_blank" rel="noopener">Subscribe</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero" id="home">
-    <!-- Decorative pitch: halfway line, centre circle, and a drifting passing lane -->
-    <svg class="pitch-lines" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
-      <rect x="60" y="40" width="1080" height="520"/>
-      <line x1="600" y1="40" x2="600" y2="560"/>
-      <circle cx="600" cy="300" r="90"/>
-      <rect x="60" y="170" width="160" height="260"/>
-      <rect x="980" y="170" width="160" height="260"/>
-      <path class="pass-line" d="M150 480 C 350 200, 700 520, 1050 160"/>
-    </svg>
-    <div class="wrap">
-      <h1>Football, Explained Differently.</h1>
-      <p class="tagline">Football explained through the combined lens of Math and Storytelling.</p>
-      <p class="support">Med1n explores the game through data, tactical insights, statistics, and compelling narratives.</p>
-      <div class="buttons">
-        <a class="button solid" href="#videos">Watch Videos</a>
-        <a class="button outline" id="subscribe-hero" target="_blank" rel="noopener">Subscribe on YouTube</a>
+    <title>Med1n — Football, decoded</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-row">
+        <a class="brand" href="#top" aria-label="Med1n home"
+          ><img class="brand-logo" src="photos/med1n_icon-removebg-preview.png" alt=""
+          ></a
+        >
+        <button
+          class="nav-toggle"
+          id="nav-toggle"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+        <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+          <a href="#videos">Videos</a><a href="#comments">Comments</a
+          ><a href="#contact">Contact</a>
+          <a
+            class="nav-cta"
+            data-channel-link
+            target="_blank"
+            rel="noopener noreferrer"
+            >Subscribe <span aria-hidden="true">↗</span></a
+          >
+        </nav>
       </div>
+    </header>
 
-      <div class="counter-box" aria-live="polite">
-        <div class="counter-number" id="subscriber-number">&mdash;</div>
-        <div class="counter-label">YouTube Subscribers</div>
-        <div class="counter-status"><span class="status-dot" id="status-dot"></span><span id="status-text">Loading...</span></div>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span class="live-dot"></span> THE GAME, WITH MORE DEPTH
+            </p>
+            <h1>Football,<br /><span>decoded.</span></h1>
+            <p class="hero-lede">
+              The numbers tell you what happened. The story explains why.
+            </p>
+            <p class="hero-detail">
+              Med1n explores football through data, tactics and the moments that
+              make the game matter.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#videos"
+                >Explore videos <span aria-hidden="true">↓</span></a
+              ><a
+                class="text-link"
+                data-channel-link
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit YouTube <span aria-hidden="true">↗</span></a
+              >
+            </div>
+          </div>
+          <aside class="subscriber-panel" aria-live="polite">
+            <div class="panel-top">
+              <span class="panel-kicker">THE COMMUNITY</span
+              ><span class="live-pill"><i></i> CHANNEL STATS</span>
+            </div>
+            <div class="subscriber-count" id="subscriber-count">—</div>
+            <div class="subscriber-caption">YouTube subscribers</div>
+            <div class="panel-rule"></div>
+            <p class="data-status" id="data-status">Connecting to YouTube…</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section featured-section" id="featured-section">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">START HERE</p>
+              <h2>Featured video</h2>
+            </div>
+            <span class="section-index">01 / SPOTLIGHT</span>
+          </div>
+          <div class="featured-card" id="featured-video"></div>
+        </div>
+      </section>
+
+      <section class="section videos-section" id="videos">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">FRESH FROM THE CHANNEL</p>
+              <h2>Latest videos</h2>
+            </div>
+            <a
+              class="text-link"
+              data-videos-link
+              target="_blank"
+              rel="noopener noreferrer"
+              >All videos <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="video-grid" id="video-grid">
+            <p class="notice">Loading the latest videos…</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section comments-section" id="comments">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">A DIFFERENT VIEW OF THE GAME</p>
+              <h2>What viewers are saying</h2>
+            </div>
+            <p class="heading-note">
+              Recent public comments from Med1n videos.
+            </p>
+          </div>
+          <div class="comment-grid" id="comment-grid">
+            <p class="notice">Loading comments…</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="container contact-layout">
+          <div class="contact-intro">
+            <p class="eyebrow">LET'S MAKE SOMETHING GOOD</p>
+            <h2>Have an idea?<br /><span>Let’s talk.</span></h2>
+            <p>
+              Send a video suggestion, collaboration idea, sponsorship inquiry,
+              or just a note. I’ll get back to you as soon as I can.
+            </p>
+            <div class="contact-topics">
+              <span>Video ideas</span><span>Feedback on video</span
+              ><span>Sponsorships</span><span>Something else</span>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <label
+                >Your name<input
+                  name="name"
+                  required
+                  maxlength="80"
+                  autocomplete="name"
+                  placeholder="Name"
+              /></label>
+              <label
+                >Email address<input
+                  name="email"
+                  required
+                  type="email"
+                  maxlength="120"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+              /></label>
+            </div>
+            <label
+              >What are you reaching out about?
+              <select name="topic" required>
+                <option value="Video idea">Video idea</option>
+                <option value="Collaboration">Collaboration</option>
+                <option value="Sponsorship">Sponsorship</option>
+                <option value="Other">Something else</option>
+              </select>
+            </label>
+            <label
+              >Your message<textarea
+                name="message"
+                required
+                minlength="10"
+                maxlength="2500"
+                rows="5"
+                placeholder="Tell me a little about it…"
+              ></textarea>
+            </label>
+            <label class="form-trap" aria-hidden="true"
+              >Leave this field empty<input
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+            /></label>
+            <div class="form-submit-row">
+              <button
+                class="button button-primary"
+                id="contact-submit"
+                type="submit"
+              >
+                Send message <span aria-hidden="true">↗</span>
+              </button>
+              <p id="contact-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-row">
+        <a class="brand" href="#top">
+          <img class="brand-logo" src="photos/med1n_icon-removebg-preview.png" alt="Med1n" />
+        </a>
+        <p>Football, decoded. © <span id="year"></span> Mizi</p>
+        <div class="footer-socials">
+          <a data-channel-link target="_blank" rel="noopener noreferrer"
+            >YouTube ↗</a
+          ><a data-instagram-link target="_blank" rel="noopener noreferrer"
+            >Instagram ↗</a
+          ><a data-tiktok-link target="_blank" rel="noopener noreferrer"
+            >TikTok ↗</a
+          >
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section id="featured">
-    <div class="wrap">
-      <h2>Featured Video</h2>
-      <div class="featured" id="featured-area">
-        <div class="skeleton"></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="videos">
-    <div class="wrap">
-      <h2>Latest Videos</h2>
-      <div class="video-grid" id="video-grid">
-        <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
-      </div>
-      <div class="section-actions">
-        <a class="button solid" id="view-all" target="_blank" rel="noopener">View All Videos</a>
-        <a class="button outline" id="watch-on-youtube" target="_blank" rel="noopener">Watch on YouTube</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- About text is plain HTML: edit the words directly -->
-  <section id="about" class="about">
-    <div class="wrap">
-      <h2>About Med1n</h2>
-      <p class="big">Football explained through the combined lens of Math and Storytelling.</p>
-      <p>Every match is a story, and every story has numbers underneath it. Med1n combines statistics, mathematical thinking, and tactical analysis with narrative to uncover a deeper understanding of the game.</p>
-      <p>The goal is simple: show why football unfolds the way it does, in a way that is clear and worth watching.</p>
-    </div>
-  </section>
-
-
-  <section id="comments">
-    <div class="wrap">
-      <h2>What People Are Saying</h2>
-      <div class="comment-grid" id="comment-grid">
-        <div class="message">Loading comments...</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="wrap">
-      <h2>Request a Video</h2>
-      <p class="contact-intro">Got a match, player, or football question you want explained? Tell me and it might become the next video.</p>
-      <form id="contact-form" class="contact-form" novalidate>
-        <label>Your name
-          <input type="text" name="name" required maxlength="80" autocomplete="name">
-        </label>
-        <label>Your email (so I can reply, optional)
-          <input type="email" name="email" maxlength="120" autocomplete="email">
-        </label>
-        <label>What is your message about?
-          <select name="topic">
-            <option value="Video request">I want a video about something</option>
-            <option value="Feedback">Feedback on a video</option>
-            <option value="Business">Business or collaboration</option>
-            <option value="Other">Something else</option>
-          </select>
-        </label>
-        <label>Your message
-          <textarea name="message" rows="6" required minlength="10" maxlength="2000"></textarea>
-        </label>
-        <!-- Hidden trap field: real people never fill it in, spam bots do -->
-        <input type="text" name="website" class="trap" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="button solid" type="submit" id="contact-submit">Send message</button>
-        <p id="contact-result" role="status"></p>
-      </form>
-    </div>
-  </section>
-
-  <section id="socials">
-    <div class="wrap">
-      <h2>Follow Med1n</h2>
-      <div class="social-grid" id="social-grid"></div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap footer-row">
-    <div>
-      <strong class="brand">Med1n</strong>
-      <p>Football explained through Math and Storytelling.</p>
-      <p>&copy; <span id="year"></span> Med1n</p>
-    </div>
-    <div class="links" id="footer-links"></div>
-  </div>
-</footer>
-
-<script>
-  /* =====================================================
-     SETTINGS: everything editable lives in this one block
-     ===================================================== */
-  const CONFIG = {
-    channelUrl: "https://www.youtube.com/@med1nmed1n",
-    videosUrl: "https://www.youtube.com/@med1nmed1n/videos",
-
-    // Not provided yet. Paste the real links here (leave "" to show a placeholder card).
-    instagramUrl: "",
-    tiktokUrl: "",
-
-    // Paste a YouTube video id (the part after v=) to feature it. Leave "" to feature the latest upload.
-    featuredVideoId: "",
-
-    // Where the server function lives (see api/youtube.js)
-    apiUrl: "/api/youtube",
-    contactApiUrl: "/api/contact",
-    refreshSeconds: 60,
-  };
-
-  /* ---------- Small helpers ---------- */
-  const $ = (id) => document.getElementById(id);
-  const formatDate = (iso) => new Date(iso).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
-  const youtubeLink = (id) => "https://www.youtube.com/watch?v=" + id;
-
-  // Build text safely so video titles can never inject HTML
-  function makeElement(tag, className, text) {
-    const element = document.createElement(tag);
-    if (className) element.className = className;
-    if (text !== undefined) element.textContent = text;
-    return element;
-  }
-
-  /* ---------- Static links and menu ---------- */
-  ["subscribe-header", "subscribe-hero"].forEach((id) => { $(id).href = CONFIG.channelUrl + "?sub_confirmation=1"; });
-  $("view-all").href = CONFIG.videosUrl;
-  $("watch-on-youtube").href = CONFIG.channelUrl;
-  $("year").textContent = new Date().getFullYear();
-
-  $("menu-button").addEventListener("click", () => {
-    const open = $("main-nav").classList.toggle("open");
-    $("menu-button").setAttribute("aria-expanded", open);
-  });
-  $("main-nav").addEventListener("click", () => $("main-nav").classList.remove("open"));
-
-  /* ---------- Social cards (shared by the socials section and footer) ---------- */
-  const socials = [
-    { name: "YouTube", url: CONFIG.channelUrl, action: "Subscribe" },
-    { name: "Instagram", url: CONFIG.instagramUrl, action: "Follow" },
-    { name: "TikTok", url: CONFIG.tiktokUrl, action: "Follow" },
-  ];
-  socials.forEach((social) => {
-    const card = makeElement(social.url ? "a" : "div", "social-card" + (social.url ? "" : " unset"));
-    card.appendChild(makeElement("h3", "", social.name));
-    card.appendChild(makeElement("span", "", social.url ? social.action + " on " + social.name : "Link coming soon"));
-    if (social.url) { card.href = social.url; card.target = "_blank"; card.rel = "noopener"; }
-    $("social-grid").appendChild(card);
-
-    if (social.url) {
-      const footerLink = makeElement("a", "", social.name);
-      footerLink.href = social.url; footerLink.target = "_blank"; footerLink.rel = "noopener";
-      $("footer-links").appendChild(footerLink);
-    }
-  });
-
-  /* ---------- Subscriber counter with counting animation ---------- */
-  let shownCount = null;
-  function animateCount(target) {
-    const start = shownCount === null ? 0 : shownCount;
-    const duration = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 900;
-    const startTime = performance.now();
-    shownCount = target;
-    function step(now) {
-      const progress = duration === 0 ? 1 : Math.min((now - startTime) / duration, 1);
-      $("subscriber-number").textContent = Math.round(start + (target - start) * progress).toLocaleString();
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
-  }
-
-  function showStatus(kind, text) {
-    $("status-dot").className = "status-dot " + kind;
-    $("status-text").textContent = text;
-  }
-
-  /* ---------- Videos ---------- */
-  function renderVideos(videos) {
-    const grid = $("video-grid");
-    grid.replaceChildren();
-    videos.slice(0, 9).forEach((video) => {
-      const card = makeElement("a", "video-card");
-      card.href = youtubeLink(video.id); card.target = "_blank"; card.rel = "noopener";
-      const thumb = makeElement("div", "thumb");
-      const image = document.createElement("img");
-      image.src = video.thumbnail; image.alt = "Thumbnail: " + video.title; image.loading = "lazy";
-      thumb.append(image, makeElement("span", "play-icon"));
-      const text = makeElement("div", "card-text");
-      text.append(makeElement("h3", "", video.title), makeElement("time", "", formatDate(video.publishedAt)));
-      card.append(thumb, text);
-      grid.appendChild(card);
-    });
-  }
-
-  function renderFeatured(videos) {
-    const chosen = videos.find((v) => v.id === CONFIG.featuredVideoId) || videos[0];
-    if (!chosen) return;
-    const area = $("featured-area");
-    area.replaceChildren();
-
-    const thumb = makeElement("div", "thumb");
-    const image = document.createElement("img");
-    image.src = chosen.thumbnail; image.alt = "Thumbnail: " + chosen.title;
-    const play = makeElement("button", "play-icon");
-    play.setAttribute("aria-label", "Play " + chosen.title);
-    play.style.cursor = "pointer";
-    play.addEventListener("click", () => {
-      // Swap the thumbnail for the embedded player only when clicked
-      const frame = document.createElement("iframe");
-      frame.src = "https://www.youtube-nocookie.com/embed/" + chosen.id + "?autoplay=1";
-      frame.allow = "autoplay; encrypted-media; picture-in-picture";
-      frame.allowFullscreen = true; frame.title = chosen.title;
-      thumb.replaceChildren(frame);
-    });
-    thumb.append(image, play);
-
-    const info = makeElement("div");
-    const description = (chosen.description || "").split("\n")[0].slice(0, 200);
-    const watch = makeElement("a", "button solid", "Watch on YouTube");
-    watch.href = youtubeLink(chosen.id); watch.target = "_blank"; watch.rel = "noopener";
-    info.append(makeElement("h3", "", chosen.title), makeElement("p", "", description), watch);
-    area.append(thumb, info);
-  }
-
-
-  /* ---------- Comments ---------- */
-  function renderComments(comments) {
-    const grid = $("comment-grid");
-    grid.replaceChildren();
-    if (!comments || comments.length === 0) {
-      grid.appendChild(makeElement("div", "message", "No comments to show yet. Join the conversation on YouTube!"));
-      return;
-    }
-    comments.forEach((comment) => {
-      const card = makeElement("article", "comment-card");
-
-      const author = makeElement("div", "comment-author");
-      if (comment.authorImage) {
-        const picture = document.createElement("img");
-        picture.src = comment.authorImage; picture.alt = ""; picture.loading = "lazy";
-        author.appendChild(picture);
-      }
-      author.appendChild(makeElement("span", "", comment.author));
-
-      const meta = makeElement("div", "comment-meta");
-      const videoLink = makeElement("a", "", comment.videoTitle);
-      videoLink.href = youtubeLink(comment.videoId); videoLink.target = "_blank"; videoLink.rel = "noopener";
-      meta.append(formatDate(comment.publishedAt) + " on ", videoLink);
-
-      card.append(author, makeElement("p", "comment-text", comment.text), meta);
-      grid.appendChild(card);
-    });
-  }
-
-  /* ---------- Contact form ---------- */
-  $("contact-form").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const result = $("contact-result");
-    const button = $("contact-submit");
-
-    if (!form.name.value.trim() || form.message.value.trim().length < 10) {
-      result.className = "failure";
-      result.textContent = "Please add your name and a message of at least 10 characters.";
-      return;
-    }
-
-    button.disabled = true;
-    result.className = "";
-    result.textContent = "Sending...";
-    try {
-      const response = await fetch(CONFIG.contactApiUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name.value, email: form.email.value, topic: form.topic.value,
-          message: form.message.value, website: form.website.value,
-        }),
-      });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Something went wrong.");
-      form.reset();
-      result.className = "success";
-      result.textContent = "Thanks! Your message was sent.";
-    } catch (error) {
-      result.className = "failure";
-      result.textContent = "Could not send: " + error.message;
-    }
-    button.disabled = false;
-  });
-
-  /* ---------- Load data from the server function ---------- */
-  async function loadData() {
-    try {
-      const response = await fetch(CONFIG.apiUrl);
-      if (!response.ok) throw new Error("Status " + response.status);
-      const data = await response.json();
-
-      if (data.avatar) { $("header-logo").src = data.avatar; $("header-logo").style.display = "block"; }
-      if (data.subscribers !== null && data.subscribers !== undefined) {
-        animateCount(data.subscribers);
-        try { localStorage.setItem("med1n-last", JSON.stringify({ count: data.subscribers, time: data.updatedAt })); } catch (e) {}
-        const time = new Date(data.updatedAt).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-        showStatus(data.stale ? "error" : "live", (data.stale ? "Showing last known count, " : "Updated ") + time);
-      } else {
-        $("subscriber-number").textContent = "Hidden";
-        showStatus("error", "The channel hides its subscriber count");
-      }
-      renderVideos(data.videos);
-      renderFeatured(data.videos);
-      renderComments(data.comments);
-    } catch (error) {
-      // Fall back to the last count saved in this browser
-      let saved = null;
-      try { saved = JSON.parse(localStorage.getItem("med1n-last")); } catch (e) {}
-      if (saved) {
-        animateCount(saved.count);
-        showStatus("error", "Offline. Last known count from " + new Date(saved.time).toLocaleString());
-      } else {
-        $("subscriber-number").textContent = "Unavailable";
-        showStatus("error", "Live data is not connected yet");
-      }
-      if ($("video-grid").querySelector(".skeleton")) {
-        $("video-grid").replaceChildren(makeElement("div", "message", "Videos could not be loaded right now. You can watch everything on the YouTube channel."));
-        $("featured-area").replaceChildren(makeElement("div", "message", "Featured video unavailable."));
-        $("comment-grid").replaceChildren(makeElement("div", "message", "Comments could not be loaded right now."));
-      }
-    }
-  }
-
-  loadData();
-  setInterval(loadData, CONFIG.refreshSeconds * 1000);
-</script>
-</body>
+    </footer>
+    <script src="app.js" defer></script>
+  </body>
 </html>

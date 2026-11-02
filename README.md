@@ -1,30 +1,28 @@
-# Med1n portfolio: setup
+# Med1n website
 
-Files: `index.html` (the whole page), `api/youtube.js` (server function that talks to YouTube).
+This folder is a self-contained site with Vercel serverless endpoints for YouTube data and contact form delivery.
 
-## 1. Get a YouTube API key (free)
-1. Go to console.cloud.google.com and create a project.
-2. Enable "YouTube Data API v3".
-3. Credentials > Create credentials > API key. Restrict it to the YouTube Data API v3.
+## Configure the content
 
-## 2. Deploy (Vercel)
-1. Put this folder in a GitHub repo and import it on vercel.com.
-2. Add environment variable `YOUTUBE_API_KEY` with your key.
-3. Optional: `YOUTUBE_HANDLE` (default `med1nmed1n`).
-4. Deploy. The page calls `/api/youtube` every 60 seconds.
+Edit `app.js` → `SITE_CONFIG` to set the YouTube channel, Instagram, TikTok, and featured YouTube video ID. The video ID is the 11-character value after `v=` in a YouTube watch URL. Thumbnails link directly to YouTube and open in a new tab; on mobile, the device may open the YouTube app.
 
-## 3. Contact form (needs email setup)
-1. Create a free account at resend.com and make an API key.
-2. In Vercel add `RESEND_API_KEY` and `CONTACT_TO_EMAIL` (the address that receives messages).
-3. For testing, emails come from onboarding@resend.dev. To send from your own domain, verify it in Resend and set `CONTACT_FROM_EMAIL`.
-Until these are set, the form shows a clear error and nothing is lost silently.
+## Enable subscriber count, latest videos, and comments
 
-## 4. Edit settings
-Open `index.html` and change the `CONFIG` block near the bottom:
-Instagram link, TikTok link, and a featured video id.
+1. Create a Google Cloud project and enable **YouTube Data API v3**.
+2. Create an API key and restrict it to YouTube Data API v3.
+3. Import the repository into Vercel. Set the Vercel **Root Directory** to `medin-clean`.
+4. In Vercel, open **Project Settings → Environment Variables** and add `YOUTUBE_API_KEY` with the API key. Optionally set `YOUTUBE_HANDLE` (default: `med1nmed1n`).
+5. Redeploy after saving the variables.
 
-## Notes
-- YouTube rounds public subscriber counts (for example 12,345 shows as 12,300), and the API does not push live events. The page shows what YouTube reports and re-checks every minute.
-- Comments come from the newest 4 videos (up to 4 each) and use extra API quota. If a video has comments turned off, it is skipped. Comments are shown as plain text, but YouTube's own moderation is the only filter, so check the section now and then.
-- Without the API key, the page shows "Live data is not connected yet" and never invents numbers.
-- Test locally with `npx vercel dev`.
+The key is read only by `api/youtube.js` on the server. Never put the key in `app.js` or commit it to Git. Without the Vercel endpoint and key, the configured featured video still works, while live counts and feeds explain that the API connection is needed.
+
+## Receive contact messages
+
+1. Create a Resend account and API key.
+2. In Vercel Environment Variables, add `RESEND_API_KEY` and `CONTACT_TO_EMAIL` (the inbox where messages should arrive).
+3. Optionally add `CONTACT_FROM_EMAIL` after verifying your sender domain with Resend. Without it, the endpoint uses Resend's testing sender.
+4. Redeploy. The form offers video idea, collaboration, sponsorship, and general message topics.
+
+## Local preview
+
+Use Vercel CLI from this folder with `vercel dev`. Add the same environment variables in Vercel's Development environment or a local ignored `.env.local` file.
