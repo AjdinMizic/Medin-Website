@@ -26,3 +26,10 @@ The key is read only by `api/youtube.js` on the server. Never put the key in `ap
 ## Local preview
 
 Use Vercel CLI from this folder with `vercel dev`. Add the same environment variables in Vercel's Development environment or a local ignored `.env.local` file.
+
+
+## What to do
+1. Latest videos with a scrolling behaviour and description about the video
+2. Comments from videos scrolling from left to right with the feature to stop a comment while hovering it
+3. Show the best stats from the channel. Views in general, likes etc..
+4. Text fix because its all AI generated
