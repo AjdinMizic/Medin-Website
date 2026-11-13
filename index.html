@@ -84,18 +84,22 @@
           </div>
           <aside class="subscriber-panel" aria-live="polite">
             <div class="panel-top">
-              <span class="panel-kicker">THE COMMUNITY</span
-              ><span class="live-pill"><i></i> CHANNEL STATS</span>
+              <span class="panel-kicker">THE COMMUNITY</span>
+              <span class="live-pill">CHANNEL SNAPSHOT</span>
             </div>
-            <div class="subscriber-count" id="subscriber-count">—</div>
+            <div class="subscriber-count" data-count="12400" data-stat="subscribers">0</div>
             <div class="subscriber-caption">YouTube subscribers</div>
             <div class="panel-rule"></div>
-            <p class="data-status" id="data-status">Connecting to YouTube…</p>
+            <div class="stat-row">
+              <div><strong data-count="3200000" data-stat="views">0</strong><span>Total views</span></div>
+              <div><strong data-count="186000" data-stat="likes">0</strong><span>Total likes</span></div>
+              <div><strong data-count="42" data-stat="videos">0</strong><span>Videos</span></div>
+            </div>
           </aside>
         </div>
       </section>
 
-      <section class="section featured-section" id="featured-section">
+      <section class="section featured-section" id="videos">
         <div class="container">
           <div class="section-heading">
             <div>
@@ -108,40 +112,19 @@
         </div>
       </section>
 
-      <section class="section videos-section" id="videos">
-        <div class="container">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">FRESH FROM THE CHANNEL</p>
-              <h2>Latest videos</h2>
-            </div>
-            <a
-              class="text-link"
-              data-videos-link
-              target="_blank"
-              rel="noopener noreferrer"
-              >All videos <span aria-hidden="true">↗</span></a
-            >
-          </div>
-          <div class="video-grid" id="video-grid">
-            <p class="notice">Loading the latest videos…</p>
-          </div>
-        </div>
-      </section>
-
       <section class="section comments-section" id="comments">
         <div class="container">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">A DIFFERENT VIEW OF THE GAME</p>
-              <h2>What viewers are saying</h2>
+              <p class="eyebrow">THE COMMUNITY</p>
+              <h2>Community highlights</h2>
             </div>
             <p class="heading-note">
-              Recent public comments from Med1n videos.
+              Example comments · replace with selected viewer comments.
             </p>
           </div>
-          <div class="comment-grid" id="comment-grid">
-            <p class="notice">Loading comments…</p>
+          <div class="comment-marquee" aria-label="Viewer comments">
+            <div class="comment-track" id="comment-track"></div>
           </div>
         </div>
       </section>
@@ -153,14 +136,15 @@
             <h2>Have an idea?<br /><span>Let’s talk.</span></h2>
             <p>
               Send a video suggestion, collaboration idea, sponsorship inquiry,
-              or just a note. I’ll get back to you as soon as I can.
+              community comment, or just a note. Comments are reviewed before
+              anything is featured on the site.
             </p>
             <div class="contact-topics">
               <span>Video ideas</span><span>Feedback on video</span
               ><span>Sponsorships</span><span>Something else</span>
             </div>
           </div>
-          <form class="contact-form" id="contact-form">
+          <form class="contact-form" action="/api/send.php" method="POST">
             <div class="form-row">
               <label
                 >Your name<input
@@ -183,11 +167,18 @@
             <label
               >What are you reaching out about?
               <select name="topic" required>
+                <option value="" disabled selected>Choose a topic</option>
+                <option value="Community comment for review">Community comment</option>
                 <option value="Video idea">Video idea</option>
                 <option value="Collaboration">Collaboration</option>
                 <option value="Sponsorship">Sponsorship</option>
                 <option value="Other">Something else</option>
               </select>
+            </label>
+            <label class="consent-label">
+              <input type="checkbox" name="featureConsent" value="yes" />
+              If this is a community comment, I’m okay with it being considered
+              for a highlight. My email address will never be shown.
             </label>
             <label
               >Your message<textarea
@@ -208,12 +199,10 @@
             <div class="form-submit-row">
               <button
                 class="button button-primary"
-                id="contact-submit"
                 type="submit"
               >
                 Send message <span aria-hidden="true">↗</span>
               </button>
-              <p id="contact-status" role="status" aria-live="polite"></p>
             </div>
           </form>
         </div>

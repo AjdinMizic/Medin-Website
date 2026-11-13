@@ -500,6 +500,66 @@ h2 {
 .comment-meta a {
   color: var(--lime);
 }
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 20px 0 16px;
+}
+.stat-row div {
+  display: grid;
+  gap: 3px;
+}
+.stat-row strong {
+  font: 700 19px/1.1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.stat-row span {
+  color: var(--muted);
+  font-size: 10px;
+}
+.comment-marquee {
+  overflow: hidden;
+  padding: 4px 0 12px;
+}
+.comment-track {
+  display: flex;
+  width: max-content;
+  animation: comments-right 52s linear infinite;
+}
+.comment-marquee:hover .comment-track,
+.comment-marquee:focus-within .comment-track {
+  animation-play-state: paused;
+}
+.comment-group {
+  display: flex;
+  gap: 15px;
+  padding-right: 15px;
+}
+.comment-group .comment-card {
+  width: clamp(260px, 29vw, 340px);
+  min-height: 170px;
+}
+.comment-group .comment-text {
+  font-size: 15px;
+}
+.comment-group .comment-author {
+  color: var(--lime);
+  margin-top: auto;
+}
+.comment-video-link {
+  align-self: flex-start;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+.comment-video-link:hover {
+  color: var(--lime);
+}
+@keyframes comments-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
 .site-footer {
   border-top: 1px solid var(--line);
   padding: 24px 0;
@@ -635,6 +695,13 @@ h2 {
   *::after {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+  .comment-track {
+    animation: none;
+    transform: none;
+  }
+  .comment-group[aria-hidden="true"] {
+    display: none;
   }
 }
 
@@ -819,6 +886,23 @@ h2 {
 .contact-form textarea:focus {
   outline: 2px solid var(--yellow);
   outline-offset: 1px;
+}
+.contact-form .consent-label {
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.contact-form .consent-label[hidden] {
+  display: none;
+}
+.contact-form .consent-label input {
+  width: 16px;
+  height: 16px;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: var(--yellow);
 }
 .form-row {
   display: grid;

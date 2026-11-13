@@ -1,35 +1,22 @@
 # Med1n website
 
-This folder is a self-contained site with Vercel serverless endpoints for YouTube data and contact form delivery.
+This folder contains a mostly static site. Channel stats and featured comments are entered by hand. The contact form submits as regular HTML to a PHP endpoint; it does not need browser JavaScript to send.
 
 ## Configure the content
 
 Edit `app.js` → `SITE_CONFIG` to set the YouTube channel, Instagram, TikTok, and featured YouTube video ID. The video ID is the 11-character value after `v=` in a YouTube watch URL. Thumbnails link directly to YouTube and open in a new tab; on mobile, the device may open the YouTube app.
 
-## Enable subscriber count, latest videos, and comments
+## Edit the channel snapshot and comments
 
-1. Create a Google Cloud project and enable **YouTube Data API v3**.
-2. Create an API key and restrict it to YouTube Data API v3.
-3. Import the repository into Vercel. Set the Vercel **Root Directory** to `medin-clean`.
-4. In Vercel, open **Project Settings → Environment Variables** and add `YOUTUBE_API_KEY` with the API key. Optionally set `YOUTUBE_HANDLE` (default: `med1nmed1n`).
-5. Redeploy after saving the variables.
-
-The key is read only by `api/youtube.js` on the server. Never put the key in `app.js` or commit it to Git. Without the Vercel endpoint and key, the configured featured video still works, while live counts and feeds explain that the API connection is needed.
+Update `CHANNEL_SNAPSHOT` and `FEATURED_COMMENTS` near the top of `app.js`. These values are examples and do not update automatically. Each featured comment can include the viewer's display name, comment text, YouTube `videoId` (the 11-character ID from the watch URL), and `videoTitle`; the ticker uses that ID to link to the video. Add only reviewed comments you have permission to feature. The site does not call the YouTube Data API.
 
 ## Receive contact messages
 
 1. Create a Resend account and API key.
-2. In Vercel Environment Variables, add `RESEND_API_KEY` and `CONTACT_TO_EMAIL` (the inbox where messages should arrive).
+2. In Vercel Environment Variables, add `RESEND_API_KEY`. Optionally add `CONTACT_TO_EMAIL` to override the recipient configured in `api/send.php`.
 3. Optionally add `CONTACT_FROM_EMAIL` after verifying your sender domain with Resend. Without it, the endpoint uses Resend's testing sender.
-4. Redeploy. The form offers video idea, collaboration, sponsorship, and general message topics.
+4. Redeploy. `vercel.json` configures Vercel's community PHP runtime for `api/send.php`. The PHP handler sends mail through Resend and returns a confirmation page. Community comments arrive by email for review; they are never published automatically. The form uses a honeypot and a short per-IP cooldown stored in `/tmp`.
 
 ## Local preview
 
-Use Vercel CLI from this folder with `vercel dev`. Add the same environment variables in Vercel's Development environment or a local ignored `.env.local` file.
-
-
-## What to do
-1. Latest videos with a scrolling behaviour and description about the video
-2. Comments from videos scrolling from left to right with the feature to stop a comment while hovering it
-3. Show the best stats from the channel. Views in general, likes etc..
-4. Text fix because its all AI generated
+Open `index.html` directly to preview the static content. Contact form delivery requires PHP hosting with cURL enabled and the Resend API key configured. On Vercel, the PHP handler uses the community runtime configured in `vercel.json`; a static file server by itself cannot send the form.
